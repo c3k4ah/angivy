@@ -4,10 +4,10 @@ import 'package:shelf/shelf_io.dart' as io;
 import 'package:angivy/config/db.config.dart' as db_config;
 import '../models/actu.model.dart';
 
-void getAllUser() async {
+void getAllActus() async {
   var conf = db_config.DBCONFIG();
   final app = Router();
-  app.get('/users', (Request request) async {
+  app.get('/actus', (Request request) async {
     var usersJson = await ActuModel().getActuJson();
     return Response.ok(usersJson,
         headers: {'Content-Type': 'application/json'});
