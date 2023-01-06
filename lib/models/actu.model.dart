@@ -12,10 +12,10 @@ class ActuModel {
     // Connectez-vous à la base de données
     var conn = await MySqlConnection.connect(connectionSettings());
 
-    // Exécutez une requête SQL pour récupérer les données de la table "actu"
+    // Exécute la requête SQL pour récupérer les données de la table "actu"
     var results = await conn.query('SELECT * FROM actu');
 
-    // Parcourez les résultats et créez des objets User à partir des données de chaque ligne
+    // Parcoure les résultats et crée des objets Actu à partir des données de chaque ligne
     for (var row in results) {
       var actu = Actu(
         id: row[0],
@@ -35,7 +35,10 @@ class ActuModel {
   }
 
 //--------------------------------------------------------------------
-  Future<String> getActuJson() async {
+//On génère un JSON à partir de la fonction getAllActus() qui retourne List<Actu>
+//la class Actu se trouve dans "entities/actu.dart"
+
+  Future<String> getActusJson() async {
     var actus = await ActuModel.getAllActus();
     return json.encode(actus);
   }
