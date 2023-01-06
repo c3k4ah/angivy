@@ -1,3 +1,9 @@
+## get packages
+
+```bash
+dart pub get
+```
+
 ## build object model
 
 ```bash
